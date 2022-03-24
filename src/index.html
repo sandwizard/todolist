@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<style>
+    *{
+        font-family: sans-serif;
+    }
+    ul {
+  list-style-type: none;
+ }
+ #completedTaskList .content {
+        color: grey;
+        text-decoration: line-through;
+      }
+ form{
+     padding-left: 40px;
+ }
+    h1{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items:center ;
+        padding:30px;
+        font-size: 1.2rem;
+    }
+    div{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items:center ;
+        padding:30px;
+        
+    }
+    div#list{
+        background-color: bisque;
+        height: 300px;
+        width: 500px;
+        border-radius: 20px;
+    }
+    .hide{
+        display: none;
+    }
+    #account{
+        position: absolute;
+        right:60px;
+    }
+    #loader{
+        background-color:cadetblue;
+        width: 30px;
+        height: 30px;
+        animation: load 3s linear infinite ;
+    }
+    @keyframes load {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+        
+    }
+    #list div{
+        height: 100%;
+        width: 100%;
+        display: block;
+    }
+    
+</style>
+<body>
+    <h1>Todo List</h1>
+    <div>
+        <h3 id="account"></h3>
+
+    </div>
+    
+    </h3>
+    <div>
+        <div id = "loader"></div>
+        <div id="list" style="display: none;">
+            <div>
+                <form onsubmit="App.createTask(); return false;">
+                    <input id="newTask" type="text" placeholder="Add task ...">
+                    <input type="submit" hidden="">
+                </form>
+                
+
+                <ul id = "taskList">
+                    <li id="taskTemplate" style="display: none;">
+                        <input type="checkbox" />
+                        <label class="content"></label>
+                        
+    
+                    </li>
+                </ul>
+                <ul id="completedTaskList" class="list-unstyled">
+                </ul>
+
+            </div>
+            
+            
+        </div>
+        
+    </div>
+    
+    
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="vendors/@truffle/contract/dist/truffle-contract.min.js"></script>
+    <script src="vendors/web3/dist/web3.min.js"></script>  
+    <script src="app.js"></script>
+</html>
